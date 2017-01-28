@@ -1,4 +1,4 @@
-## find-duplicate-files
+## About this repository
   Finds duplicate files in the given path and dumps the result in a csv file. The csv file will have hash, files list and size of the file
 
 #### How to execute:
@@ -16,3 +16,8 @@ The result will be saved in the below format,<br>
 | ...| ...| ...|
 
 Note: Works with python 2.7.x
+
+##### Upcoming Features :)
+
+Prints the total size of found duplicated files
+Keep the first file in each cell in second column(refer above table) and delete the rest
