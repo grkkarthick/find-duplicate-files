@@ -19,5 +19,6 @@ Note: Works with python 2.7.x
 
 ##### Upcoming Features :)
 
-Prints the total size of found duplicated files
-Keep the first file in each cell in second column(refer above table) and delete the rest
+* Prints the total size of found duplicated files<br>
+* Keep the first file in each cell in second column(refer above table) and delete the rest<br>
+* Adding support to whitelist or blacklist file extension
