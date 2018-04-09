@@ -10,18 +10,14 @@ if not os.path.isdir(folderPath):
     sys.exit(1)
 
 def IterateFiles(folderPath, recursive = False):
-    fileList = []
     if recursive:
         for folder in IterateFolders(folderPath):
             for file in IterateFiles(folderPath = folder):
-                fileList.append(file)
+                yield file
     else:
         for file in os.listdir(folderPath):
             if os.path.isfile(os.path.join(folderPath, file)):
-                fileList.append(os.path.join(folderPath, file))
-
-    return fileList
-
+                yield os.path.join(folderPath, file)
 
 def IterateFolders(folderPath):
     for folders in os.walk(folderPath):
@@ -57,10 +53,10 @@ with open(csvFile, 'w') as csvFile:
                 logFile.write('Error while processing file hash: {0} ----- names:'.format(key))
                 for index, fileName in enumerate(value):
                     if isinstance(value[index], str):
-                        value[index] = fileName.encode('string-escapse')
+                        value[index] = fileName.encode('string-escape')
                     elif isinstance(value[index], unicode):
-                        value[index] = fileName.encode('unicode-excapse')
-                logFile.write('|\t|'.join(values))
+                        value[index] = fileName.encode('unicode-escape')
+                logFile.write('|\t|'.join(value))
                 logFile.write('\n')
 
         print "Completed....."
